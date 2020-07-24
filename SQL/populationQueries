@@ -1,0 +1,27 @@
+-- This is the first query:
+
+SELECT DISTINCT year from population_years;
+
+-- Add your additional queries below:
+
+SELECT MAX(population) as "Largest pop for Gabon"
+FROM population_years
+WHERE country = "Gabon";
+
+SELECT DISTINCT country as "10 lowest pop countries in 2005"
+FROM population_years
+WHERE year = 2005
+ORDER BY population DESC
+LIMIT 10;
+
+SELECT DISTINCT country as "countries with pop > 100M in 2010"
+FROM population_years
+WHERE year = 2010 AND population >= 100;
+
+SELECT DISTINCT COUNT(*) as "countries with 'Islands' in the name"
+FROM population_years
+WHERE country LIKE "%Islands%";
+
+SELECT population as "Indonesia diff 2000 and 2010"
+FROM population_years
+WHERE country = "Indonesia" AND year = 2000 OR country = "Indonesia" AND year = 2010;
